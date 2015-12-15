@@ -1,6 +1,6 @@
 require "base/internal/ui/reflexcore"
 
-d0ppHealth = {
+doppelHealth = {
 	visible = true;
 	anchor = {
 		x = 0;
@@ -11,7 +11,7 @@ d0ppHealth = {
 		y = 0;
 	}
 }
-d0ppArmor = {
+doppelArmor = {
 	visible = true;
 	anchor = {
 		x = 0;
@@ -22,15 +22,15 @@ d0ppArmor = {
 		y = 0;
 	}
 }
-registerWidget("d0ppHealth")
-registerWidget("d0ppArmor")
+registerWidget("doppelHealth")
+registerWidget("doppelArmor")
 
 local function shouldDrawHud(ignoreShowHud)
 	local lp = getLocalPlayer()
 	return (lp and lp.connected and replayName ~= "menu" and not isInMenu() and (ignoreShowHud or consoleGetVariable("cl_show_hud") ~= 0))
 end
 
-function d0ppHealth:draw()
+function doppelHealth:draw()
 	if not world or world.gameState == GAME_STATE_GAMEOVER or not shouldDrawHud() then return end
 	local player = getPlayer()
 	if not player or not player.connected or player.state ~= PLAYER_STATE_INGAME or player.health <= 0 then return end
@@ -79,7 +79,7 @@ function d0ppHealth:draw()
 	nvgClosePath()
 end
 
-function d0ppArmor:draw()
+function doppelArmor:draw()
 	if not world or world.gameState == GAME_STATE_GAMEOVER or not shouldDrawHud() then return end
 	local player = getPlayer()
 	if not player or not player.connected or player.state ~= PLAYER_STATE_INGAME or player.armor <= 0 then return end
